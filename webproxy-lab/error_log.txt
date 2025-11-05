@@ -1,0 +1,15 @@
+proxy: 클라이언트 (localhost, 36776)와 연결되었습니다. 
+After parsing hostname: localhost, port: 18871, filename: /home.html
+클라이언트 요청 다 파싱했습니다. server_hostname: localhost, server_port: 18871, filename: /home.html 
+proxy: 클라이언트 (localhost, 36786)와 연결되었습니다. 
+After parsing hostname: localhost, port: 18871, filename: /csapp.c
+클라이언트 요청 다 파싱했습니다. server_hostname: localhost, server_port: 18871, filename: /csapp.c 
+proxy: 클라이언트 (localhost, 36802)와 연결되었습니다. 
+After parsing hostname: localhost, port: 18871, filename: /tiny.c
+클라이언트 요청 다 파싱했습니다. server_hostname: localhost, server_port: 18871, filename: /tiny.c 
+proxy: 클라이언트 (localhost, 36816)와 연결되었습니다. 
+After parsing hostname: localhost, port: 18871, filename: /godzilla.jpg
+클라이언트 요청 다 파싱했습니다. server_hostname: localhost, server_port: 18871, filename: /godzilla.jpg 
+proxy: 클라이언트 (localhost, 36828)와 연결되었습니다. 
+After parsing hostname: localhost, port: 18871, filename: /tiny
+클라이언트 요청 다 파싱했습니다. server_hostname: localhost, server_port: 18871, filename: /tiny 

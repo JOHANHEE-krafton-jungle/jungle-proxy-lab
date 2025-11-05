@@ -211,7 +211,8 @@ echo "*** Basic ***"
 tiny_port=$(free_port)
 echo "Starting tiny on ${tiny_port}"
 cd ./tiny
-./tiny ${tiny_port}   &> /dev/null  &
+# ./tiny ${tiny_port}   &> /dev/null  &
+./tiny ${tiny_port}   &>> ./error_log.txt  &
 tiny_pid=$!
 cd ${HOME_DIR}
 
@@ -221,7 +222,8 @@ wait_for_port_use "${tiny_port}"
 # Run the proxy
 proxy_port=$(free_port)
 echo "Starting proxy on ${proxy_port}"
-./proxy ${proxy_port}  &> /dev/null &
+# ./proxy ${proxy_port}  &> /dev/null &
+./proxy ${proxy_port}  &>> ./error_log.txt &
 proxy_pid=$!
 
 # Wait for the proxy to start in earnest
@@ -248,7 +250,8 @@ do
 
     # Compare the two files
     echo "   Comparing the two files"
-    diff -q ${PROXY_DIR}/${file} ${NOPROXY_DIR}/${file} &> /dev/null
+    # diff -q ${PROXY_DIR}/${file} ${NOPROXY_DIR}/${file} &> /dev/null
+    diff -q ${PROXY_DIR}/${file} ${NOPROXY_DIR}/${file} &>> ./error_log.txt
     if [ $? -eq 0 ]; then
         numSucceeded=`expr ${numSucceeded} + 1`
         echo "   Success: Files are identical."
@@ -258,10 +261,15 @@ do
 done
 
 echo "Killing tiny and proxy"
-kill $tiny_pid 2> /dev/null
-wait $tiny_pid 2> /dev/null
-kill $proxy_pid 2> /dev/null
-wait $proxy_pid 2> /dev/null
+# kill $tiny_pid 2> /dev/null
+# wait $tiny_pid 2> /dev/null
+# kill $proxy_pid 2> /dev/null
+# wait $proxy_pid 2> /dev/null
+
+kill $tiny_pid 2>> ./error_log.txt
+wait $tiny_pid 2>> ./error_log.txt
+kill $proxy_pid 2>> ./error_log.txt
+wait $proxy_pid 2>> ./error_log.txt
 
 basicScore=`expr ${MAX_BASIC} \* ${numSucceeded} / ${numRun}`
 
